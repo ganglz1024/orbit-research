@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: ${ORBIT_DB_URL:jdbc:mysql://127.0.0.1:3306/orbit?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC}
+    username: ${ORBIT_DB_USER:orbit}
+    password: ${ORBIT_DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver

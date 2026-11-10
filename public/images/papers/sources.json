@@ -1,0 +1,50 @@
+[
+  {
+    "id": "survey",
+    "source": "https://arxiv.org/pdf/2312.10997v1",
+    "page": 1,
+    "image": "/images/papers/01_rag_survey.webp",
+    "width": 640,
+    "height": 829
+  },
+  {
+    "id": "rag",
+    "source": "https://arxiv.org/pdf/2005.11401v1",
+    "page": 1,
+    "image": "/images/papers/02_retrieval_augmented_generation.webp",
+    "width": 640,
+    "height": 829
+  },
+  {
+    "id": "self-rag",
+    "source": "https://arxiv.org/pdf/2310.11511v1",
+    "page": 1,
+    "image": "/images/papers/03_self_rag.webp",
+    "width": 640,
+    "height": 829
+  },
+  {
+    "id": "crag",
+    "source": "https://arxiv.org/pdf/2401.15884v1",
+    "page": 1,
+    "image": "/images/papers/04_corrective_rag.webp",
+    "width": 640,
+    "height": 906
+  },
+  {
+    "id": "lost-middle",
+    "source": "https://arxiv.org/pdf/2307.03172v1",
+    "page": 1,
+    "image": "/images/papers/05_lost_in_the_middle.webp",
+    "width": 640,
+    "height": 906
+  },
+  {
+    "id": "graph-rag",
+    "source": "https://arxiv.org/pdf/2404.16130v1",
+    "page": 1,
+    "image": "/images/papers/06_graph_rag.webp",
+    "width": 640,
+    "height": 829
+  }
+]

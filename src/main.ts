@@ -1,0 +1,15 @@
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import App from './App.vue'
+import { router } from './router'
+import './styles.css'
+import '@fontsource-variable/inter/standard.css'
+import '@fontsource-variable/noto-sans-sc'
+import './typography.css'
+import './interactions.css'
+import './backend.css'
+import './copilot.css'
+import './research-copilot.css'
+import './workspace-controls.css'
+
+createApp(App).use(createPinia()).use(router).mount('#app')

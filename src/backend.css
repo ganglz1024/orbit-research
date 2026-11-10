@@ -1,0 +1,43 @@
+/* Personal configuration uses the existing Orbit surfaces, typography and motion tokens. */
+.connection-fields { border: 0; padding: 0; margin: 0; min-width: 0; }
+.connection-fields:disabled { opacity: .65; }
+.button-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.model-advanced { margin-top: 22px; color: var(--muted); font-size: 13px; }
+.model-advanced summary, .model-materials summary { cursor: pointer; padding-block: 6px; }
+.model-advanced[open] > .form-grid { margin-top: 14px; }
+.settings-hint { color: var(--muted); font-size: 12px; line-height: 1.7; margin-top: 12px; }
+.research-preference-form { margin-top: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--border-light); }
+.form-grid textarea { width: 100%; min-width: 0; resize: vertical; padding: 12px; font: inherit; line-height: 1.7; }
+.form-grid small { color: var(--muted); line-height: 1.7; }
+.form-grid .checkbox-label, .checkbox-label { display: flex; flex-direction: row; align-items: center; gap: 8px; line-height: 1.6; }
+.form-grid .checkbox-label input, .checkbox-label input { width: 15px; height: 15px; padding: 0; accent-color: var(--purple); flex-shrink: 0; }
+.skill-editor { max-height: 90dvh; overflow-y: auto; }
+.skill-editor textarea { min-height: 180px; max-height: 350px; }
+.skill-delete-confirm { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 20px; color: var(--muted); font-size: 12px; }
+.assistant-connection { flex-shrink: 0; padding: 12px 20px; border-bottom: 1px solid var(--border-light); color: var(--muted); font-size: 11px; }
+.assistant-connection-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.assistant-connection label { display: flex; gap: 8px; align-items: center; }
+.assistant-connection > label { margin-top: 10px; }
+.assistant-connection select { min-width: 0; max-width: 200px; padding: 4px 7px; font: inherit; color: var(--text); }
+.assistant-connection a { color: var(--purple); white-space: nowrap; }
+.assistant-connection .model-name { max-width: 115px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.compose-toolbar .compose-model-link { display: inline-flex; align-items: center; gap: 5px; min-width: 0; flex: 0 1 auto; max-width: calc(100% - 76px); padding: 4px 5px; border-radius: 5px; font-size: 11px; color: var(--muted); text-decoration: none; transition: color var(--motion-hover), background-color var(--motion-hover); }
+.compose-model-link > svg { flex-shrink: 0; }
+.compose-model-link > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.compose-toolbar .compose-model-link:hover { color: var(--purple-deep); background-color: var(--purple-soft); }
+.compose-toolbar > .send-button { flex-shrink: 0; }
+.model-conversation-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 24px; }
+.model-conversation-heading .text-button { font-size: 12px; }
+.skill-call-list { display: flex; flex-direction: column; gap: 9px; color: var(--purple); font-size: 12px; padding-block: 12px; }
+.skill-call-list > span { display: flex; align-items: center; gap: 6px; }
+.model-materials { margin-top: 8px; font-size: 11px; color: var(--muted); }
+.model-materials details[open] { max-height: 180px; overflow-y: auto; padding-bottom: 8px; }
+.model-materials p { line-height: 1.7; margin-block: 8px; }
+.model-material-option { display: flex; align-items: center; gap: 6px; text-align: left; padding: 6px; width: 100%; border-radius: 5px; }
+.model-material-option span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.model-material-option:hover { background: var(--purple-soft); }
+.model-material-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.model-material-chips > span { max-width: 100%; display: flex; align-items: center; gap: 4px; border: 1px solid var(--border); border-radius: 6px; padding-left: 5px; }
+.model-material-chips > span > span { max-width: 170px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.model-material-chips .icon-button { width: 24px; height: 24px; }
+@media (max-width: 640px) { .settings-form-bottom { flex-wrap: wrap; gap: 14px; } .assistant-connection { padding-inline: 16px; } }

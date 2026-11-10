@@ -1,0 +1,334 @@
+/* Desktop typography. Existing narrow-screen layout rules are not expanded here. */
+.desktop-font-preference { display: none; }
+@media (min-width: 1024px) {
+  :root {
+    --font-ui: 'Inter Variable', 'Noto Sans SC Variable', 'Microsoft YaHei', sans-serif;
+    --font-chinese: 'Noto Sans SC Variable', 'Microsoft YaHei', sans-serif;
+    --type-xs: 12px;
+    --type-sm: 13px;
+    --type-ui: 14px;
+    --type-body: 16px;
+    --type-content: 15px;
+    --type-title: 18px;
+    --weight-body: 400;
+    --weight-label: 500;
+    --weight-heading: 600;
+    font-family: var(--font-ui);
+    font-size: var(--type-body);
+    font-weight: var(--weight-body);
+    line-height: 1.6;
+    font-optical-sizing: auto;
+    font-feature-settings: 'calt' 1, 'kern' 1;
+  }
+
+  .brand-name, .brand-chinese, .avatar,
+  .paper-node-footer>span, .assistant-reading-path>button>span,
+  .privacy-metrics strong, .slide-brand {
+    font-family: var(--font-ui);
+  }
+  .desktop-font-preference { display: flex; }
+
+  .small-pill,
+  .eyebrow,
+  .hero-composer label,
+  .composer-hint,
+  .hero-suggestions,
+  .hero-suggestions button,
+  .hero-preview-note,
+  .experience-chrome,
+  .experience-label>span,
+  .preview-caption,
+  .preview-caption>span,
+  .feature-number,
+  .landing-footer,
+  .landing-footer .brand-chinese,
+  .sidebar-brand>.small-pill,
+  .new-space>span,
+  .primary-navigation .small-pill,.nav-count,
+  .sidebar-section-label,
+  .sidebar-hint,
+  .local-note>div,
+  .local-note small,
+  .profile-row small,
+  .workspace-eyebrow,
+  .workspace-eyebrow>span:last-child,
+  .canvas-context-bar,
+  .paper-category,
+  .paper-node-author,
+  .paper-node-footer,
+  .canvas-sticky>span,
+  .canvas-sticky>div,
+  .canvas-controls>span:not(.control-divider),
+  .canvas-help,
+  .workspace-bottom-bar,
+  .workspace-bottom-bar .text-button,
+  .graph-mode .paper-node-author,
+  .paper-list-row>div>span,
+  .assistant-welcome .eyebrow,
+  .assistant-reading-path>button>span,
+  .assistant-reading-path small,
+  .assistant-next>button,.question-prompt,
+  .assistant-compose>label,
+  .assistant-compose>div>span,
+  .assistant-footnote,
+  .message-label,
+  .message-sources button,
+  .research-progress span,
+  .paper-detail-meta,
+  .category-badge,
+  .detail-tabs>button>span:not(.small-pill),
+  .detail-citation,
+  .detail-citation>small,
+  .skill-label,
+  .skill-card dl,
+  .artifact-type,
+  .artifact-card p,
+  .connection-status,
+  .form-grid label>small,
+  .settings-form-bottom>span,
+  .privacy-metrics span,
+  .upload-dialog .eyebrow,
+  .drop-zone>span:last-child,
+  .upload-results small,
+  .upload-dialog>footer,
+  .upload-dialog>footer .text-button,
+  .existing-documents>button>small,
+  .reader-file-name>span,
+  .zoom-label,
+  .selection-toolbar>span,
+  .annotation-empty>small,
+  .annotation-card>header>.text-button,
+  .annotation-card>header>span,
+  .new-comment .section-mini-label,
+  .new-comment label,
+  .annotation-color-row>.primary-button,
+  .reader-inspector-footer .text-button,
+  .deck-editor-header>div>span,
+  .annotation-edit .primary-button,
+  .annotation-edit .text-button {
+    font-size: var(--type-xs);
+  }
+
+  .section-mini-label,
+  .hero-eyebrow,
+  .upload-inline,
+  .workflow-grid a,.workflow-grid article>button,
+  .landing-closing>span,
+  .recent-sessions>button,
+  .profile-row>div,
+  .breadcrumb,
+  .workspace-header-actions .primary-button,.workspace-header-actions .secondary-button,
+  .workspace-title p,
+  .segmented-control>button,
+  .canvas-question,
+  .paper-node-description,
+  .list-filter,
+  .list-filter select,
+  .paper-list-row p,
+  .assistant-reading-path strong,
+  .chat-message.user p,
+  .research-progress strong,
+  .detail-authors,
+  .detail-source-actions>.primary-button,
+  .detail-tabs>button,
+  .insight-block strong,
+  .insight-block p,
+  .detail-citation>a,
+  .standard-topbar,
+  .skills-summary,
+  .skill-card .text-button,
+  .skill-coming p,
+  .inline-info p,
+  .search-field input,
+  .settings-section-heading p,
+  .form-grid label,.slide-fields label,
+  .preference-row p,
+  .privacy-explanation p,
+  .upload-results strong,
+  .existing-documents>button,
+  .pdf-toolbar>div>span,
+  .page-input input,
+  .selection-toolbar>button,
+  .pdf-find input,
+  .annotation-empty .secondary-button,
+  .annotation-card blockquote,.new-comment blockquote,
+  .annotation-card>p,
+  .reader-ai-answer .secondary-button,
+  .deck-editor-header .primary-button,.deck-editor-header .secondary-button,
+  .slide-editing-title,
+  .annotation-edit label {
+    font-size: var(--type-sm);
+  }
+
+  .brand-chinese,
+  .primary-button,.secondary-button,.header-cta,
+  .text-button,
+  .landing-header nav,
+  .explore-button,
+  .experience-label h2,
+  .section-heading>p,
+  .workflow-grid p,
+  .new-space,
+  .primary-navigation>a,.primary-navigation>button,
+  .avatar,
+  .canvas-sticky>p,
+  .graph-mode .paper-open strong,
+  .paper-list-row strong,
+  .assistant-header strong,
+  .assistant-welcome p,
+  .assistant-compose textarea,
+  .chat-message>p,
+  .detail-body,
+  .detail-subheading,
+  .standard-page-heading p,
+  .skill-card>p,
+  .artifacts-empty p,
+  .empty-state p,
+  .settings-nav>a,
+  .form-grid input,.form-grid select,
+  .form-error,.error,
+  .preference-row strong,
+  .modal-description,
+  .drop-zone strong,
+  .reader-file-name>strong,
+  .annotation-empty p,
+  .new-comment textarea,
+  .reader-ai>p,
+  .reader-ai-answer>p,
+  .deck-editor-header strong,
+  .slide-fields input,.slide-fields textarea,
+  .toast-message,
+  .annotation-edit textarea {
+    font-size: var(--type-ui);
+  }
+
+  .hero-description,
+  .paper-open>strong,
+  .artifact-card h2 {
+    font-size: var(--type-body);
+  }
+
+  /* Display, page, and section titles. */
+  .brand-name { font-weight: 650; letter-spacing: -.045em; line-height: 1.2; }
+  .brand-chinese { font-family: var(--font-chinese); font-weight: 500; letter-spacing: .12em; }
+  .landing-hero h1 { font-size: clamp(52px, 4.5vw, 68px); font-weight: 600; line-height: 1.28; letter-spacing: -.04em; }
+  .hero-description { font-size: var(--type-body); line-height: 1.85; letter-spacing: 0; }
+  .landing-header nav, .header-cta, .hero-eyebrow { font-weight: var(--weight-label); }
+  .hero-eyebrow { font-size: var(--type-xs); letter-spacing: .04em; }
+  .hero-composer label { font-size: var(--type-sm); font-weight: var(--weight-label); letter-spacing: 0; }
+  .hero-composer textarea { font-size: var(--type-title); line-height: 1.7; height: 72px; }
+  .hero-composer { padding: 21px 22px 16px; }
+  .hero-suggestions button { font-size: var(--type-xs); }
+  .hero-preview-note { line-height: 1.8; }
+  .section-heading h2 { font-size: 36px; font-weight: 600; line-height: 1.45; letter-spacing: -.025em; }
+  .section-heading>p, .workflow-grid p { font-size: var(--type-content); line-height: 1.8; }
+  .workflow-grid h3 { font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
+  .landing-closing h2 { font-weight: 600; letter-spacing: -.025em; }
+  .standard-page-heading h1 { font-size: 32px; font-weight: 600; line-height: 1.4; letter-spacing: -.025em; }
+  .standard-page-heading p { font-size: var(--type-content); line-height: 1.8; }
+  .workspace-title h1 { font-size: 26px; font-weight: 600; line-height: 1.45; letter-spacing: -.025em; }
+  .workspace-title p { font-size: var(--type-ui); line-height: 1.7; }
+  .workspace-eyebrow { font-size: var(--type-xs); letter-spacing: .08em; }
+  .workspace-eyebrow>span:last-child { letter-spacing: 0; }
+
+  /* Navigation and compact controls stay distinct from reading text. */
+  .primary-navigation>a, .primary-navigation>button, .new-space { font-weight: 500; }
+  .new-space { font-size: var(--type-ui); }
+  .new-space>span { font-size: var(--type-xs); letter-spacing: 0; }
+  .primary-button, .secondary-button, .explore-button { font-weight: 550; }
+  .workspace-header-actions .primary-button, .workspace-header-actions .secondary-button { font-size: var(--type-sm); }
+  .segmented-control>button, .detail-tabs>button { font-size: var(--type-ui); font-weight: 500; }
+  .recent-sessions>button { font-size: var(--type-sm); }
+  .breadcrumb, .standard-topbar { font-size: var(--type-sm); }
+  .canvas-context-bar, .workspace-bottom-bar { font-size: var(--type-xs); }
+  .eyebrow { font-size: var(--type-xs); font-weight: 500; letter-spacing: .11em; }
+  .section-mini-label { font-size: var(--type-sm); font-weight: 500; letter-spacing: .02em; }
+  .canvas-controls>span, .privacy-metrics strong, .page-input input,
+  .zoom-label, .assistant-reading-path>button>span { font-variant-numeric: tabular-nums; }
+
+  /* Paper cards and graph labels use real, uncondensed text. */
+  .paper-node { width: 264px; }
+  .research-canvas { overflow: clip; }
+  .paper-open { padding: 11px 14px 13px; }
+  .paper-open>strong { font-size: var(--type-title); font-weight: 600; line-height: 1.45; letter-spacing: -.02em; max-width: none; }
+  .paper-category { font-size: var(--type-xs); font-weight: 500; }
+  .paper-node-author { font-size: var(--type-sm); line-height: 1.45; gap: 5px; }
+  .paper-node-description { font-size: var(--type-ui); line-height: 1.65; min-height: 46px; }
+  .paper-node-footer { font-size: var(--type-xs); line-height: 1.4; }
+  .graph-mode .paper-node { width: 280px; }
+  .graph-mode .paper-open { min-height: 110px; padding: 12px 8px; }
+  .graph-mode .paper-open strong { font-size: var(--type-body); font-weight: 600; line-height: 1.45; letter-spacing: -.015em; }
+  .graph-mode .paper-node-author { font-size: var(--type-sm); line-height: 1.45; }
+  .graph-expand { width: 24px; height: 24px; left: 40px; top: 72px; }
+  .paper-list-row strong { font-size: var(--type-body); font-weight: 550; line-height: 1.55; }
+  .paper-list-row>div>span { font-size: var(--type-sm); line-height: 1.6; }
+  .paper-list-row p { font-size: var(--type-content); line-height: 1.75; }
+  .paper-list-view { padding-top: 12px; }
+  .canvas-help { font-size: var(--type-xs); }
+  .canvas-sticky { display: none; }
+
+  /* Long-form reading and AI responses. */
+  .assistant-header strong { font-size: var(--type-ui); font-weight: 600; }
+  .assistant-welcome h2 { font-size: 21px; font-weight: 600; line-height: 1.5; letter-spacing: -.02em; }
+  .assistant-welcome p, .chat-message>p, .chat-message.user p,
+  .detail-body, .insight-block p { font-size: var(--type-content); line-height: 1.8; }
+  .assistant-compose textarea { font-size: var(--type-content); line-height: 1.7; min-height: 68px; }
+  .assistant-compose>label { font-size: var(--type-xs); font-weight: 500; }
+  .assistant-footnote { font-size: var(--type-xs); line-height: 1.6; }
+  .assistant-reading-path strong { font-size: var(--type-ui); font-weight: 550; line-height: 1.5; }
+  .assistant-reading-path small { font-size: var(--type-xs); line-height: 1.6; }
+  .assistant-reading-path>button>span { width: 29px; height: 29px; }
+  .assistant-next>button, .question-prompt { font-size: var(--type-sm); line-height: 1.7; }
+  .message-sources button { font-size: var(--type-xs); white-space: normal; text-align: left; }
+  .detail-paper-title { font-size: 22px; font-weight: 600; line-height: 1.45; letter-spacing: -.025em; }
+  .detail-authors { font-size: var(--type-sm); line-height: 1.6; }
+  .detail-subheading { font-size: var(--type-ui); font-weight: 600; }
+  .insight-block strong { font-size: var(--type-ui); font-weight: 550; }
+  .detail-citation { font-size: var(--type-xs); line-height: 1.7; }
+  .detail-citation>a { font-size: var(--type-sm); }
+  .detail-citation>small { font-size: var(--type-xs); line-height: 1.7; }
+
+  /* Skills, artifacts, settings, upload, and PDF reader chrome. */
+  .skill-card h2 { font-size: 22px; font-weight: 600; line-height: 1.4; letter-spacing: -.02em; }
+  .skill-card>p { font-size: var(--type-content); line-height: 1.8; min-height: 108px; }
+  .skill-card dl { font-size: var(--type-sm); line-height: 1.6; }
+  .skill-card dt { font-weight: 500; }
+  .skill-card .text-button { font-size: var(--type-ui); }
+  .skill-coming h2 { font-size: 20px; font-weight: 550; line-height: 1.6; }
+  .skill-coming p { font-size: var(--type-content); line-height: 1.8; }
+  .inline-info p, .privacy-explanation p { font-size: var(--type-sm); line-height: 1.8; }
+  .artifact-card h2 { font-size: var(--type-title); font-weight: 550; line-height: 1.55; }
+  .artifacts-empty h2 { font-size: 28px; font-weight: 600; line-height: 1.5; }
+  .artifacts-empty p, .empty-state p { font-size: var(--type-content); line-height: 1.8; }
+  .settings-section h2 { font-size: 20px; font-weight: 600; line-height: 1.5; }
+  .settings-section-heading p, .preference-row p { font-size: var(--type-sm); line-height: 1.8; }
+  .preference-row strong { font-size: var(--type-ui); font-weight: 550; }
+  .form-grid label, .slide-fields label { font-size: var(--type-sm); font-weight: 500; }
+  .form-grid input, .form-grid select, .slide-fields input, .slide-fields textarea { font-size: var(--type-content); font-weight: 400; line-height: 1.7; }
+  .form-grid label>small { font-size: var(--type-xs); font-weight: 400; line-height: 1.7; }
+  .upload-dialog>header h2 { font-size: 26px; font-weight: 600; line-height: 1.5; letter-spacing: -.025em; }
+  .modal-description { font-size: var(--type-ui); line-height: 1.8; }
+  .drop-zone strong { font-size: var(--type-content); font-weight: 550; }
+  .reader-file-name>strong { font-size: var(--type-ui); font-weight: 500; }
+  .reader-file-name>span { font-size: var(--type-xs); line-height: 1.5; }
+  .reader-inspector { width: 350px; }
+  .reader-ai h2, .annotation-empty h2 { font-size: 22px; font-weight: 600; line-height: 1.5; }
+  .reader-ai>p, .reader-ai-answer>p, .annotation-empty p,
+  .annotation-card>p { font-size: var(--type-content); line-height: 1.8; }
+  .annotation-card blockquote, .new-comment blockquote { font-size: var(--type-ui); line-height: 1.8; }
+  .new-comment textarea, .annotation-edit textarea, .pdf-find input { font-size: var(--type-content); line-height: 1.7; }
+  .slide-editing-title, .slide-preview-caption { font-size: var(--type-xs); line-height: 1.7; }
+  .deck-editor-header strong { font-size: var(--type-ui); font-weight: 550; }
+  .toast-message { font-size: var(--type-ui); }
+
+  /* Smaller desktop windows retain readable navigation and side panels. */
+  @media (max-width: 1279px) {
+    .workspace-title h1 { font-size: 23px; }
+    .workspace-eyebrow { font-size: 11px; }
+    .canvas-context-bar { font-size: 11px; }
+    .graph-legend { gap: 9px; }
+    .assistant-content { padding: 22px 17px; }
+    .skill-card { padding: 22px 18px; }
+    .skill-card h2 { font-size: 20px; }
+  }
+}

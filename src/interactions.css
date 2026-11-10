@@ -1,0 +1,90 @@
+/* Shared control feedback. Canvas nodes and scroll-owned transforms are deliberately excluded. */
+:root {
+  --motion-hover: 160ms;
+  --motion-press: 110ms;
+  --motion-focus: 200ms;
+  --motion-input: 220ms;
+  --motion-tab: 260ms;
+  --motion-panel: 220ms;
+  --motion-feedback: 200ms;
+  --motion-magnetic: 240ms;
+  --motion-shimmer: 900ms;
+  --motion-ease: cubic-bezier(.2,.75,.25,1);
+  --control-press-scale: .98;
+  --control-focus-ring: 0 0 0 3px color-mix(in srgb, var(--focus) 14%, transparent);
+}
+button:not(:disabled), a { transition-duration: var(--motion-hover); transition-timing-function: var(--motion-ease); }
+:is(.primary-button,.secondary-button,.icon-button,.send-button,.text-button,.header-cta,.new-space,.story-reader-open) {
+  transition: background-color var(--motion-hover) var(--motion-ease), color var(--motion-hover), border-color var(--motion-hover), box-shadow var(--motion-focus), scale var(--motion-press) var(--motion-ease);
+}
+:is(.primary-button,.send-button):hover:not(:disabled) { background: color-mix(in srgb, var(--purple) 96%, var(--on-accent)); color: var(--on-accent); }
+:is(.primary-button,.secondary-button,.icon-button,.send-button,.text-button,.header-cta,.new-space,.story-reader-open):active:not(:disabled) { scale: var(--control-press-scale); }
+:is(.icon-button,.canvas-controls button):hover:not(:disabled) { background-color: var(--surface-hover); color: var(--purple-deep); }
+.canvas-controls button:active:not(:disabled) { scale: .97; transition: scale var(--motion-press); }
+button:disabled, button[aria-disabled="true"] { opacity: .45; cursor: not-allowed; scale: 1; }
+:is(button,a,input,textarea,select):focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+:is(input,textarea,select) { transition: border-color var(--motion-input), box-shadow var(--motion-focus), background-color var(--motion-input); }
+:is(input,textarea,select):focus-visible { box-shadow: var(--control-focus-ring); }
+.primary-navigation :is(a,button), .recent-sessions > button, .profile-row, .question-prompt, .assistant-next > button, .assistant-reading-path > button {
+  transition: background-color var(--motion-hover), color var(--motion-hover), border-color var(--motion-hover);
+}
+.recent-sessions > button:hover, .profile-row:hover { background: var(--surface-hover); }
+.primary-navigation :is(a,button):active, .recent-sessions > button:active { background: var(--purple-soft); }
+.paper-node { cursor: grab; user-select: none; transition: border-color var(--motion-hover), box-shadow var(--motion-hover); }
+.paper-node .paper-open { cursor: grab; }
+.paper-node.is-node-dragging { z-index: 6; }
+.research-canvas.is-dragging, .paper-node.is-node-dragging :is(.paper-open,.drag-handle) { cursor: grabbing; }
+.paper-node.is-focused { box-shadow: 0 0 0 2px color-mix(in srgb, var(--purple) 12%, transparent), var(--shadow-sm); }
+.drag-handle { cursor: grab; }
+.drag-handle:active, .research-canvas.is-dragging .drag-handle { cursor: grabbing; }
+.node-select { transition: background-color var(--motion-hover), color var(--motion-hover), border-color var(--motion-hover); }
+.node-select[aria-pressed="true"] { background: var(--purple-soft); color: var(--purple-deep); }
+
+/* Magnetic movement belongs to the visual children; the native button hit box stays stationary. */
+.new-space > .magnetic-visual { width: 100%; display: flex; align-items: center; gap: 8px; margin: 0; font: inherit; letter-spacing: inherit; color: inherit; translate: var(--magnet-x, 0px) var(--magnet-y, 0px); transition: translate var(--motion-magnetic) var(--motion-ease); }
+.magnetic-visual > kbd { margin-left: auto; font: inherit; font-size: 10px; letter-spacing: 1px; color: var(--muted); }
+
+/* A single restrained border sweep on hover, never an idle loop. */
+.micro-shimmer { position: relative; isolation: isolate; }
+.micro-shimmer::after { content: ''; position: absolute; inset: -1px; padding: 1px; border-radius: inherit; pointer-events: none; opacity: 0; background: linear-gradient(110deg, transparent 30%, color-mix(in srgb, var(--on-accent) 70%, var(--purple-soft)) 48%, transparent 66%); background-size: 250% 100%; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
+@media (hover: hover) and (pointer: fine) {
+  .micro-shimmer:hover:not(:disabled)::after { opacity: .65; animation: orbit-border-sweep var(--motion-shimmer) var(--motion-ease) both; }
+}
+@keyframes orbit-border-sweep { from { background-position: 100% 0; } to { background-position: 0% 0; } }
+
+.assistant-compose { position: relative; isolation: isolate; flex-shrink: 0; transition: border-color var(--motion-input), box-shadow var(--motion-focus), background-color var(--motion-input); }
+.assistant-compose:focus-within { border-color: var(--purple); box-shadow: var(--control-focus-ring); background: color-mix(in srgb, var(--compose-bg) 65%, var(--surface-raised)); }
+.assistant-compose:has(textarea:focus-visible) { outline: 2px solid var(--focus); outline-offset: 3px; }
+.assistant-compose textarea:focus-visible { outline: none; box-shadow: none; }
+.assistant-compose textarea { max-height: 176px; overflow-y: hidden; scrollbar-width: thin; }
+.assistant-compose::before { content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; pointer-events: none; z-index: 1; opacity: var(--pointer-active, 0); transition: opacity var(--motion-hover); background: radial-gradient(150px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--purple) 65%, transparent), transparent 78%); mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
+.assistant-compose:focus-within::before { opacity: 0; }
+.assistant-compose .compose-toolbar { position: relative; }
+.assistant-compose .compose-error { display: block; margin: 6px 0; font-size: 11px; color: var(--danger); line-height: 1.5; }
+.assistant-compose .compose-uploaded { display: block; padding-top: 4px; font-size: 10px; color: var(--teal); }
+.assistant-compose .send-button[aria-busy="true"] { cursor: progress; }
+.assistant-compose .send-button:disabled { background: color-mix(in srgb, var(--purple) 40%, var(--compose-bg)); border-color: transparent; opacity: .65; }
+
+.animated-segmented { position: relative; isolation: isolate; }
+.animated-segmented .segmented-indicator { position: absolute; inset: 3px; background: var(--surface-raised); pointer-events: none; box-shadow: var(--shadow-sm); }
+.animated-segmented.indicator-ready .segmented-indicator { transition: clip-path var(--motion-tab) var(--motion-ease); }
+.animated-segmented > button { position: relative; z-index: 1; }
+.animated-segmented > button.active { background: transparent; box-shadow: none; border-color: transparent; }
+.animated-segmented > button:focus-visible { outline-offset: -2px; }
+.detail-tabs > button::after { transition: opacity var(--motion-tab); }
+
+.orbit-tooltip { position: fixed; z-index: 3000; pointer-events: none; max-width: min(280px, calc(100vw - 16px)); padding: 6px 9px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-raised); color: var(--text); box-shadow: var(--shadow-sm); font-size: 11px; line-height: 1.5; opacity: 0; translate: 0 2px; transition: opacity var(--motion-hover), translate var(--motion-hover) var(--motion-ease); }
+.orbit-tooltip.is-visible { opacity: 1; translate: 0 0; }
+.drop-zone { transition: border-color var(--motion-input), background-color var(--motion-input), box-shadow var(--motion-focus); }
+.drop-zone:hover:not(:disabled), .drop-zone.dragging { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--purple) 30%, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.primary-button,.secondary-button,.icon-button,.send-button,.text-button,.header-cta,.new-space,.story-reader-open,.canvas-controls button):active { scale: 1 !important; }
+  .micro-magnetic .magnetic-visual { translate: none; }
+  .micro-shimmer::after, .assistant-compose::before { display: none; }
+  .segmented-indicator, .orbit-tooltip { transition: none !important; translate: none; }
+}
+html[data-reduced-motion="true"] :is(.primary-button,.secondary-button,.icon-button,.send-button,.text-button,.header-cta,.new-space,.story-reader-open,.canvas-controls button):active { scale: 1; }
+html[data-reduced-motion="true"] .micro-magnetic .magnetic-visual { translate: none; }
+html[data-reduced-motion="true"] .micro-shimmer::after, html[data-reduced-motion="true"] .assistant-compose::before { display: none; }
+html[data-reduced-motion="true"] .orbit-tooltip { translate: none; }

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.cache/
+output/
+tmp/
+.env
+.env.local
+*.log
+backend/target/
+backend/data/
+backend/.mvn-cache/

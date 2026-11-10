@@ -1,0 +1,49 @@
+/* Orbit: warm grey, soft lilac, and paper-like working surfaces. */
+:root {
+  color-scheme: light;
+  --bg: #f2f0f5;
+  --surface: #fbfafd;
+  --surface-raised: #ffffff;
+  --surface-hover: #ece6f3;
+  --border: #ded8e6;
+  --border-light: #c9c0d4;
+  --text: #322e3b;
+  --muted: #625a6d;
+  --subtle: #6d6477;
+  --purple: #7356a6;
+  --purple-deep: #61418f;
+  --purple-soft: #eae3f3;
+  --on-accent: #ffffff;
+  --teal: #326f63;
+  --amber: #8e652b;
+  --blue: #4b6893;
+  --rose: #97566c;
+  --danger: #ac3758;
+  --focus: #7356a6;
+
+  --landing-bg: #f4f2f0;
+  --title-gradient-start: #43354f;
+  --title-gradient-end: #79618d;
+  --sidebar-bg: #eeebf1;
+  --canvas-bg: #efedf2;
+  --canvas-dot: #d3cddc;
+  --card-bg: #fdfcfe;
+  --assistant-bg: #f8f6fa;
+  --compose-bg: #f0ebf6;
+  --selection-bg: #e3d6f3;
+  --graph-line: #8d8097;
+  --graph-line-active: #7356a6;
+  --graph-line-end: #8c73aa;
+  --sticky-bg: #f1e9d3;
+  --sticky-text: #6a5731;
+  --sticky-border: #d6c8a5;
+  --shadow-color: #483954;
+  --overlay: #39313f66;
+  --pdf-paper: #ffffff;
+  --slide-bg: #faf9f6;
+  --slide-cover-bg: #ede6f4;
+  --glass-surface: color-mix(in srgb, var(--surface-raised) 94%, transparent);
+  --shadow-sm: 0 2px 8px color-mix(in srgb, var(--shadow-color) 6%, transparent);
+  --shadow-md: 0 8px 24px color-mix(in srgb, var(--shadow-color) 8%, transparent);
+  --shadow-lg: 0 20px 65px color-mix(in srgb, var(--shadow-color) 12%, transparent);
+}

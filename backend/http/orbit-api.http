@@ -1,0 +1,91 @@
+@api = http://127.0.0.1:8080/api/v1
+@csrf = replace-with-token-from-csrf-response
+@conversationId = replace-with-created-conversation-id
+@runId = replace-with-created-run-id
+
+### Health (no authentication)
+GET {{api}}/health
+
+### Fetch CSRF token; retain the ORBIT_SESSION cookie for all following requests.
+GET {{api}}/auth/csrf
+
+### First setup only. Set your own password; no default account is shipped.
+POST {{api}}/setup
+Content-Type: application/json
+X-CSRF-TOKEN: {{csrf}}
+
+{"username":"researcher","password":"replace-with-your-own-password"}
+
+### Login; fetch /auth/csrf again after success (the token rotates).
+POST {{api}}/auth/login
+Content-Type: application/x-www-form-urlencoded
+X-CSRF-TOKEN: {{csrf}}
+
+username=researcher&password=replace-with-your-own-password
+
+### Logged-in user
+GET {{api}}/auth/me
+
+### Create a conversation
+POST {{api}}/conversations
+Content-Type: application/json
+X-CSRF-TOKEN: {{csrf}}
+
+{"title":"我的研究问题"}
+
+### Create a run (keep the same idempotency key when retrying this exact request).
+POST {{api}}/conversations/{{conversationId}}/runs
+Content-Type: application/json
+X-CSRF-TOKEN: {{csrf}}
+Idempotency-Key: replace-with-a-unique-request-id
+
+{"prompt":"如何区分原文事实与研究推断？","documentIds":[],"skillId":"chat"}
+
+### Query state, answer and known token usage
+GET {{api}}/runs/{{runId}}
+
+### Replay SSE events; Last-Event-ID takes precedence over the after parameter.
+GET {{api}}/runs/{{runId}}/events?after=0
+Accept: text/event-stream
+
+### Cancel (does not erase saved events or partial output)
+POST {{api}}/runs/{{runId}}/cancel
+X-CSRF-TOKEN: {{csrf}}
+
+### Provider capabilities (never returns API keys)
+GET {{api}}/providers
+
+### Skill definitions and implementation status
+GET {{api}}/skills
+
+### Logout
+POST {{api}}/auth/logout
+X-CSRF-TOKEN: {{csrf}}
+
+### Read saved configuration metadata (never returns the API key).
+GET {{api}}/settings/model
+
+### Save account-specific model settings. Omit apiKey or leave it blank to keep the saved key.
+PUT {{api}}/settings/model
+Content-Type: application/json
+X-CSRF-TOKEN: {{csrf}}
+
+{"baseUrl":"https://api.example.com/v1","model":"your-model-id","apiKey":"","clearApiKey":false,"timeoutSeconds":120,"maxOutputTokens":2048,"includeUsage":false,"tokenParameter":"max_tokens","revision":0}
+
+### Test the saved provider with one short model request (can incur supplier charges).
+POST {{api}}/settings/model/test
+X-CSRF-TOKEN: {{csrf}}
+
+### Create a custom instruction Skill. Copy the returned id for later calls.
+POST {{api}}/skills
+Content-Type: application/json
+X-CSRF-TOKEN: {{csrf}}
+
+{"name":"证据检查","description":"区分事实、推断和待核验内容","instructions":"依次列出研究问题、原文证据、推断与局限；不能编造文献或实验数字。","enabled":true,"revision":0}
+
+### Read saved research preferences. PUT the same shape to update them.
+GET {{api}}/settings/preferences
+
+### Explicit Skill: skillId=custom_xxx. Optional model-selected Skills: toolSkillIds=[custom_xxx].
+# Replace custom_xxx with an owned, enabled id from /skills. No arbitrary scripts or tools execute.
+# The existing conversation run endpoint supports both forms and retains CSRF + Idempotency-Key.

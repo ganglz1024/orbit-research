@@ -1,0 +1,42 @@
+server:
+  address: ${ORBIT_BIND_ADDRESS:127.0.0.1}
+  port: ${ORBIT_PORT:8080}
+  servlet:
+    session:
+      timeout: 12h
+      cookie:
+        name: ORBIT_SESSION
+        http-only: true
+        same-site: lax
+        secure: ${ORBIT_COOKIE_SECURE:false}
+spring:
+  application:
+    name: orbit-backend
+  profiles:
+    default: local
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 251MB
+  datasource:
+    hikari:
+      maximum-pool-size: 6
+  mvc:
+    async:
+      request-timeout: 300000
+orbit:
+  config-encryption-key: ${ORBIT_CONFIG_ENCRYPTION_KEY:}
+  config-key-path: ${ORBIT_CONFIG_KEY_PATH:./data/config.key}
+  storage-path: ${ORBIT_STORAGE_PATH:./data/files}
+  llm:
+    base-url: ${ORBIT_LLM_BASE_URL:}
+    api-key: ${ORBIT_LLM_API_KEY:}
+    model: ${ORBIT_LLM_MODEL:}
+    allow-private-hosts: ${ORBIT_LLM_ALLOW_PRIVATE_HOSTS:false}
+    timeout-seconds: ${ORBIT_LLM_TIMEOUT_SECONDS:120}
+    max-output-tokens: ${ORBIT_LLM_MAX_OUTPUT_TOKENS:2048}
+    include-usage: ${ORBIT_LLM_INCLUDE_USAGE:false}
+    token-parameter: ${ORBIT_LLM_TOKEN_PARAMETER:max_tokens}
+logging:
+  level:
+    org.apache.pdfbox: ERROR
